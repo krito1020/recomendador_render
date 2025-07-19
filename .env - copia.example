@@ -1,0 +1,11 @@
+# Clave secreta de Django
+SECRET_KEY=tu_clave_secreta_segura
+
+# Modo de depuración (True para desarrollo, False para producción)
+DEBUG=False
+
+# Hosts permitidos separados por comas
+ALLOWED_HOSTS=.onrender.com,localhost,127.0.0.1
+
+# URL de la base de datos PostgreSQL (Render la asigna al crear el servicio)
+DATABASE_URL=postgres://usuario:contraseña@host:puerto/nombre_base
