@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: recomendador-render
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "recomendador-render.onrender.com"
+      - fromDatabase:
+          name: recomendador-db
+          property: connectionString
+          key: DATABASE_URL
+
+databases:
+  - name: recomendador-db
+    plan: free
